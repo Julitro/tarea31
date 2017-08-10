@@ -127,4 +127,41 @@ public class inicia {
                                 System.out.println( nombres1 [i]);}
      menuUsuarios();         
 }
+            public void menuPalindromas(){ 
+    
+Scanner lector =new Scanner(System.in);
+    System.out.println("PALABRAS PALINDROMAS");
+    System.out.println("ingrese palabra");
+String palabra =lector.nextLine();
+if(palindroma(palabra)){
+    System.out.println("la frase si es palindroma");
+}
+else{
+    System.out.println("la frase no es palindroma");
+}
+menuPrincipal();
+}
+public static boolean palindroma (String palabra){String aux="";
+int h = palabra.length();
+for (int i=0; i<h; i++){
+    if(!(palabra.substring(i,i+1).equals(" ")
+            || palabra.substring(i, i + 1).equals(",")
+                   || palabra.substring(i, i + 1).equals("¿")
+                   || palabra.substring(i, i + 1).equals("?")
+                   || palabra.substring(i, i + 1).equals(".")
+                   || palabra.substring(i, i+ 1).equals("!")
+                   || palabra.substring(i, i + 1).equals("¡"))){
+        
+               aux = aux + palabra.substring(i, i + 1);
+}
+}
+h = aux.length();
+        for (int i = 0; i < h /2; i++){
+         if(!aux.substring(i, i + 1).equals(aux.substring(h - i - 1, h - i))){
+         return false;       
+           }
+    }
+      return true;
+ }
+
 }
